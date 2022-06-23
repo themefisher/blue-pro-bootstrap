@@ -23,6 +23,7 @@ var path = {
     js: "source/js/*.js",
     scss: "source/scss/**/*.scss",
     images: "source/images/**/*.+(png|jpg|gif|svg)",
+    fonts: "source/fonts/**/*.+(eot|ttf|woff|woff2|otf)",
   },
   build: {
     dirBuild: "theme/",
@@ -128,6 +129,18 @@ gulp.task("images:build", function () {
     );
 });
 
+// fonts
+gulp.task("fonts:build", function () {
+  return gulp
+    .src(path.src.fonts)
+    .pipe(gulp.dest(path.build.dirDev + "fonts/"))
+    .pipe(
+      bs.reload({
+        stream: true,
+      })
+    );
+});
+
 // Plugins
 gulp.task("plugins:build", function () {
   return gulp
@@ -169,6 +182,7 @@ gulp.task("watch:build", function () {
   gulp.watch(path.src.scss, gulp.series("scss:build"));
   gulp.watch(path.src.js, gulp.series("js:build"));
   gulp.watch(path.src.images, gulp.series("images:build"));
+  gulp.watch(path.src.fonts, gulp.series("fonts:build"));
   gulp.watch(path.src.plugins, gulp.series("plugins:build"));
 });
 
@@ -181,6 +195,7 @@ gulp.task(
     "js:build",
     "scss:build",
     "images:build",
+    "fonts:build",
     "plugins:build",
     "others:build",
     gulp.parallel("watch:build", function () {
@@ -201,6 +216,7 @@ gulp.task(
     "js:build",
     "scss:build",
     "images:build",
+    "fonts:build",
     "plugins:build"
   )
 );
