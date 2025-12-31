@@ -1,6 +1,6 @@
 # Blue Pro Free Bootstrap Business Template
 
-![blue-pro](https://demo.themefisher.com/thumbnails/blue-pro.png)
+![blue-pro](https://assets.teamosis.com/thumbs/blue-pro.png)
 
 👉🏻[View Live Preview](https://demo.themefisher.com/blue-pro/)
 
